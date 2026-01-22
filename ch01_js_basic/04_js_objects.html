@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>04_js_objects</title>
+</head>
+<body bgcolor="5f5f5f">
+    <h1>04_js_objects</h1>
+    <script>
+        const person = {
+            fristName : 'John',
+            lastName : 'Doe',
+            age : 50,
+            eyeColor : 'blue',
+        }
+
+        console.log(person.fristName);
+        // 재대입
+        person['firstName'] = 'Jane';
+        console.log(person['firstName'] + ' ' + person.lastName);
+    </script>
+</body>
+</html>
