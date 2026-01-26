@@ -1,0 +1,387 @@
+@charset "utf-8";
+
+/* =========================================
+   1. Variables & Global Settings
+   ========================================= */
+:root {
+  /* Color Palette - Dark & Bold */
+  --bg-color: #121212;         /* 아주 짙은 검정 */
+  --container-bg: #1e1e1e;     /* 컨텐츠 영역 배경 */
+  --main-text: #ffffff;        /* 기본 텍스트 */
+  --sub-text: #b0b0b0;         /* 보조 텍스트 */
+  --accent-color: #fca311;     /* 강조색 (Amber) */
+  --accent-hover: #e5be01;     /* 강조색 호버 */
+  --input-bg: #2c2c2c;         /* 입력창 배경 */
+  --border-color: #333333;     /* 테두리 */
+
+  /* Spacing & Layout */
+  --wrapper-width: 500px;
+  --radius-sm: 8px;
+  --radius-lg: 16px;
+}
+
+/* 폰트 불러오기 (Google Fonts) */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700;900&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Noto Sans KR', sans-serif;
+  background-color: var(--bg-color);
+  color: var(--main-text);
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+/* =========================================
+   2. Main Layout (Block: .wrapper)
+   ========================================= */
+.wrapper {
+  width: 100%;
+  max-width: var(--wrapper-width);
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* 이미지 공통 스타일 */
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* =========================================
+   3. Title Section (Block: .title)
+   ========================================= */
+.title {
+  margin-bottom: 40px;
+  position: relative;
+}
+
+.title .clock_img {
+  width: 200px;
+  margin: 0 auto;
+  filter: drop-shadow(0 0 10px rgba(252, 163, 17, 0.3)); /* 시계 뒤 은은한 광원 */
+}
+
+.title .title_img {
+  margin-top: -40px; /* 시계와 타이틀 겹치기 */
+  position: relative;
+  z-index: 1;
+}
+
+/* =========================================
+   4. Intro Section (Block: .intro)
+   ========================================= */
+.intro {
+  margin-bottom: 40px;
+  width: 100%;
+}
+
+.intro_saying {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--accent-color);
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: -0.5px;
+}
+
+.explain {
+  background-color: var(--container-bg);
+  padding: 20px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-color);
+}
+
+.explain .quotes {
+  width: 30px;
+  margin: 0 auto 10px;
+  opacity: 0.5;
+}
+
+.explain p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--sub-text);
+}
+
+.explain p span {
+  color: var(--main-text);
+  font-weight: 900;
+  font-size: 1.1rem;
+}
+
+/* =========================================
+   5. Input Section (Block: .inputs)
+   ========================================= */
+.inputs {
+  width: 100%;
+  margin-bottom: 40px;
+}
+
+.field, .time {
+  display: flex;
+  flex-direction: column; /* 모바일 대응을 위해 세로 정렬 기본 */
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+/* input 태그 스타일링 */
+input[type="text"],
+input[type="number"] {
+  width: 200px;
+  padding: 12px;
+  margin: 10px 0;
+  background-color: var(--input-bg);
+  border: 2px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  color: var(--main-text);
+  font-size: 1.1rem;
+  text-align: center;
+  font-family: 'Noto Sans KR', sans-serif;
+  transition: all 0.3s ease;
+}
+
+input:focus {
+  outline: none;
+  border-color: var(--accent-color);
+  box-shadow: 0 0 8px rgba(252, 163, 17, 0.4);
+}
+
+input::placeholder {
+  color: #555;
+  font-size: 0.9rem;
+}
+
+/* 텍스트 줄바꿈 및 배치 조정 */
+.field p, .time p {
+  margin: 5px 0;
+}
+
+/* PC 화면에서는 가로 정렬 */
+@media screen and (min-width: 768px) {
+  .field, .time, .time > div {
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+  }
+  input[type="text"],
+  input[type="number"] {
+    margin: 0;
+  }
+}
+
+/* =========================================
+   6. Action Buttons (Block: .start)
+   ========================================= */
+.start .btn_wrap {
+  position: relative;
+  display: inline-block;
+}
+
+.start_btn {
+  background-color: var(--accent-color);
+  color: #000;
+  border: none;
+  padding: 16px 40px;
+  font-size: 1.2rem;
+  font-weight: 900;
+  border-radius: 50px; /* 둥근 버튼 */
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(252, 163, 17, 0.4);
+  transition: transform 0.2s, box-shadow 0.2s;
+  position: relative;
+  z-index: 2;
+}
+
+.start_btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(252, 163, 17, 0.6);
+  background-color: var(--accent-hover);
+}
+
+.start_btn:active {
+  transform: translateY(1px);
+}
+
+.click_img {
+  position: absolute;
+  right: -40px;
+  bottom: -20px;
+  width: 50px;
+  z-index: 3;
+  animation: pointerMove 1.5s infinite ease-in-out;
+}
+
+@keyframes pointerMove {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(5px, 5px); }
+}
+
+/* =========================================
+   7. Loading & Result (Block: .result)
+   ========================================= */
+.result_loading {
+  display: none; /* JS로 제어 */
+  margin: 40px 0;
+}
+
+.result_loading img {
+  width: 80px;
+  animation: rotateLoading 2s linear infinite;
+}
+
+@keyframes rotateLoading {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.result {
+  display: none; /* JS로 제어 (display: block으로 변경 시 보임) */
+  margin-top: 50px;
+  width: 100%;
+  animation: fadeIn 0.8s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.result_wrap {
+  font-size: 1.3rem;
+  line-height: 1.8;
+  margin-bottom: 30px;
+}
+
+.field_result, .time_result {
+  font-size: 1.8rem;
+  font-weight: 900;
+  color: var(--accent-color);
+  text-shadow: 0 0 10px rgba(252, 163, 17, 0.2);
+}
+
+/* 결과 버튼 그룹 */
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.modal_btn, .share_btn {
+  padding: 12px 24px;
+  border-radius: var(--radius-sm);
+  font-weight: 700;
+  cursor: pointer;
+  border: none;
+  font-size: 1rem;
+  transition: all 0.3s;
+}
+
+.modal_btn {
+  background-color: var(--accent-color);
+  color: #000;
+}
+
+.modal_btn:hover {
+  filter: brightness(1.1);
+}
+
+.share_btn {
+  background-color: #ffffff;
+  color: #000;
+}
+
+.share_btn:hover {
+  background-color: #e0e0e0;
+}
+
+/* =========================================
+   8. Modal (Block: .modal)
+   ========================================= */
+#modal {
+  display: none; /* JS로 제어 (flex로 변경 시 보임) */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.85); /* 배경 어둡게 */
+  z-index: 999;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal_wrap {
+  background-color: var(--container-bg);
+  padding: 40px;
+  border-radius: var(--radius-lg);
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  border: 1px solid var(--border-color);
+  max-width: 90%;
+  width: 500px;
+}
+
+.modal_wrap .cheer h1 {
+  color: var(--accent-color);
+  font-size: 2.5rem;
+  margin: 0;
+}
+
+.modal_wrap .cheer h3 {
+  margin: 10px 0 30px;
+  color: var(--main-text);
+  font-weight: 400;
+}
+
+.licat_img img {
+  width: 150px;
+  margin: 0 auto 30px;
+}
+
+.close_btn {
+  background-color: var(--accent-color);
+  color: #000;
+  border: none;
+  padding: 15px 30px;
+  border-radius: var(--radius-sm);
+  font-weight: 700;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.modal_wrap .btn p {
+  margin-top: 10px;
+  font-size: 0.8rem;
+  color: #666;
+}
+
+/* =========================================
+   9. Footer
+   ========================================= */
+#copyright {
+  margin-top: auto;
+  padding: 40px 0;
+  text-align: center;
+  font-size: 0.8rem;
+  color: #555;
+}
+
+.logo_img img {
+  width: 80px;
+  margin: 0 auto 10px;
+  opacity: 0.5;
+}
