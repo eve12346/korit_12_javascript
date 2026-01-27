@@ -1,0 +1,152 @@
+/* 기본 테마 및 배경 */
+:root {
+  --bg-color: #fffaf0;
+  --primary-color: #ffb7a1;
+  --primary-hover: #ff9a7b;
+  --text-dark: #555;
+  --border-color: #eee;
+  --white: #ffffff;
+}
+
+body {
+  background-color: var(--bg-color);
+  font-family: 'Pretendard', sans-serif;
+  display: flex;
+  justify-content: center;
+  padding-top: 50px;
+  margin: 0;
+}
+
+/* Block: Shopping App */
+.shipping-app {
+  background: var(--white);
+  width: 100%;
+  max-width: 420px;
+  padding: 30px;
+  border-radius: 24px;
+  box-shadow: 0 10px 30px rgba(255, 183, 161, 0.2);
+}
+
+/* Element: Title */
+.shopping-app__title {
+  font-size: 1.6rem;
+  color: var(--text-dark);
+  text-align: center;
+  margin-bottom: 25px;
+  letter-spacing: -1px;
+}
+
+/* Element: Input Group (윗줄: 목록 + 갯수) */
+.todo-app__input-group {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+/* Element: Inputs */
+.todo-app__input, 
+.count-app__input, 
+.price-app__input {
+  border: 1.5px solid var(--border-color);
+  border-radius: 12px;
+  padding: 12px;
+  outline: none;
+  transition: all 0.2s ease-in-out;
+}
+
+.todo-app__input:focus, 
+.count-app__input:focus, 
+.price-app__input:focus {
+  border-color: var(--primary-color);
+  background-color: #fffaf9;
+}
+
+.todo-app__input { flex: 3; }
+.count-app__input { width: 70px; text-align: center; }
+
+/* Element: Price Input & Button (아랫줄 배치용) */
+.price-app__input {
+  width: calc(100% - 100px); /* 버튼 공간 제외 */
+  margin-bottom: 20px;
+}
+
+/* Element: Add Button */
+.todo-app__add-button {
+  width: 70px;
+  height: 45px;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.todo-app__add-button:hover {
+  background-color: var(--primary-hover);
+}
+
+
+/* Block: Todo List */
+.todo__list {
+  list-style: none;
+  padding: 0;
+  margin-top: 10px;
+}
+
+/* Element: List Item */
+.todo__item {
+  background-color: #fffefb;
+  padding: 15px;
+  border-radius: 15px;
+  margin-bottom: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #f9f0eb;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Modifier: Text content */
+.todo__content {
+  color: var(--text-dark);
+  font-size: 1rem;
+}
+
+.todo__price {
+  font-size: 0.9rem;
+  color: #999;
+  margin-left: 10px;
+}
+
+.shopping-app__total {
+  margin-top: 20px;
+  padding-top: 15px;
+  border-top: 2px dashed #ffccbc;
+  text-align: right;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #555;
+}
+
+#total-price {
+  color: #ff8a65; /* 오렌지색 포인트 */
+  margin-left: 5px;
+}
+
+/* Element: Delete Button */
+.todo__delete-btn {
+  background: none;
+  border: none;
+  color: #ffcccc;
+  cursor: pointer;
+  font-size: 1.2rem;
+}
+
+.todo__delete-btn:hover { color: #ff8888; }

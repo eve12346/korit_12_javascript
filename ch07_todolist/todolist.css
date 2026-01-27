@@ -1,0 +1,169 @@
+/* 기본 초기화 및 변수 설정 */
+:root {
+  --bg-color: #121212;        /* 아주 어두운 배경 */
+  --card-bg: #1E1E1E;         /* 카드 배경 */
+  --text-main: #E0E0E0;       /* 메인 텍스트 (완전 화이트 X) */
+  --text-sub: #A0A0A0;        /* 서브 텍스트 */
+  --accent-color: #6366F1;    /* 세련된 인디고 블루 (포인트) */
+  --accent-hover: #4F46E5;    /* 호버 시 색상 */
+  --danger-color: #EF4444;    /* 삭제 버튼 색상 */
+  --border-radius: 8px;       /* 적당히 둥근 모서리 */
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  font-family: 'Noto Sans KR', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* --- Block: .todo-app --- */
+.todo-app {
+  width: 100%;
+  max-width: 480px;
+  background-color: var(--card-bg);
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5); /* 깊이감 있는 그림자 */
+  margin: 20px;
+}
+
+/* --- Elements --- */
+
+/* Title */
+.todo-app__title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 2rem;
+  letter-spacing: 1px;
+  color: var(--text-main);
+  text-transform: uppercase; /* 대문자로 강렬하게 */
+}
+
+/* Input Group Wrapper */
+.todo-app__input-group {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 1.5rem;
+}
+
+/* Input Field */
+.todo-app__input {
+  flex-grow: 1;
+  background-color: #2C2C2C;
+  border: 1px solid transparent;
+  padding: 12px 16px;
+  border-radius: var(--border-radius);
+  color: white;
+  font-size: 1rem;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.todo-app__input::placeholder {
+  color: #666;
+}
+
+.todo-app__input:focus {
+  border-color: var(--accent-color);
+  background-color: #333;
+}
+
+/* Base Button Style */
+.todo-app__btn {
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  border-radius: var(--border-radius);
+  transition: background-color 0.2s, transform 0.1s;
+  font-size: 0.9rem;
+}
+
+.todo-app__btn:active {
+  transform: scale(0.98);
+}
+
+/* Modifier: Add Button */
+.todo-app__btn--add {
+  background-color: var(--accent-color);
+  color: white;
+  padding: 0 20px;
+  white-space: nowrap;
+}
+
+.todo-app__btn--add:hover {
+  background-color: var(--accent-hover);
+}
+
+/* List Style */
+.todo-app__list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Item Style */
+.todo-app__item {
+  display: flex;
+  align-items: center;
+  background-color: #252525;
+  padding: 12px 16px;
+  border-radius: var(--border-radius);
+  transition: transform 0.2s;
+}
+
+.todo-app__item:hover {
+  background-color: #2a2a2a;
+}
+
+/* Checkbox */
+.todo-app__checkbox {
+  width: 18px;
+  height: 18px;
+  margin-right: 12px;
+  accent-color: var(--accent-color); /* 체크박스 색상 변경 */
+  cursor: pointer;
+}
+
+/* Text */
+.todo-app__text {
+  flex-grow: 1;
+  font-size: 1rem;
+  color: var(--text-main);
+  /* 텍스트가 길어지면 말줄임표 처리 */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; 
+}
+
+/* 체크박스 체크 시 텍스트 스타일 (JS 연동 필요) */
+.todo-app__checkbox:checked + .todo-app__text {
+  text-decoration: line-through;
+  color: var(--text-sub);
+}
+
+/* Modifier: Delete Button */
+.todo-app__btn--delete {
+  background-color: transparent;
+  color: #888;
+  padding: 6px 12px;
+  font-size: 0.8rem;
+  border: 1px solid #444;
+}
+
+.todo-app__btn--delete:hover {
+  background-color: rgba(239, 68, 68, 0.15); /* 은은한 붉은색 배경 */
+  color: var(--danger-color);
+  border-color: var(--danger-color);
+}
