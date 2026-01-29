@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ui_test</title>
+  <link rel="stylesheet" href="./ui_test.css">
+</head>
+<div>
+  <div class="headerMsg">넥슨 ID/비밀번호 기록이 남지 않는 일회용 로그인!</div>
+  <h1 class="logo">
+    <img src="logo_nexon.png" alt="nexon_img" class="logo_img">
+  </h1>
+
+  <div class="tab">
+      <li class="nexonLogin">넥슨ID 로그인</li>
+      <li class="onceLogin">일회용 로그인</li>
+      <li class="qrLogin">QR 로그인</li>
+  </div>
+
+  <div class="otpLogin">
+    <p class="otpLoginMsg"><strong>넥슨플레이&gt;넥슨인증기&gt;일회용 로그인</strong>에서 8자리 숫자를 입력해주세요.</p>
+			<p class="loginMsg"></p>
+  </div>
+  
+<div class="body">
+  <div class="otppass"> 
+					<div class="otppass1">
+            <input type="password" title="일회용 번호 앞 4자리" class="input01" placeholder="4자리" id="txtPCBangLogin1" maxlength="4" >
+          </div>
+					<div class="otppass2">
+            <input type="password" title="일회용 번호 뒤 4자리" class="input01" placeholder="4자리" id="txtPCBangLogin2" maxlength="4">
+          </div>
+	</div>
+
+  <div class="btLogin"><button type="button" class="button01" data-a2s="click" data-object="P_LOGIN" data-option='{"Name":"OneTime_Login","Type":"OneTimeLogin"}'>일회용 로그인</button>
+  </div>
+  <div class="optGuide">
+			<h3>일회용 로그인 이용 가이드</h3>
+			<a href="http://nexonplay.nexon.com/" target="_blink" data-a2s="click" data-object="P_LOGIN" data-option='{"Name":"OneTime_Login","Type":"NexonPlay_Info"}'>넥슨플레이 안내 ></a>
+			<ol>
+				<li>1. 넥슨플레이 앱을 실행시켜주세요.</li>
+				<li>2. 메뉴 탭에서 [넥슨인증기] 메뉴를 클릭, [일회용 로그인] 버튼을 클릭해주세요.</li>
+				<li>3. 8자리 번호를 입력하고 로그인 버튼을 클릭해주세요.</li>
+			</ol>
+	</div>
+</div>
+</body>
+</html>
